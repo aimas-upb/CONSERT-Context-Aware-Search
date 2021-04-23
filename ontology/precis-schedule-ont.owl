@@ -6,8 +6,8 @@
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-     xmlns:precis-schedule="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/"
-     xmlns:precis-schedule1="http://aimas.cs.pub.ro/robin/precis-schedule#">
+     xmlns:schedule-ont="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#"
+     xmlns:precis-schedule="http://aimas.cs.pub.ro/robin/precis-schedule#">
     <owl:Ontology rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule">
         <owl:versionIRI rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/1.0.0"/>
     </owl:Ontology>
@@ -42,56 +42,56 @@
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasHost -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasHost -->
 
-    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasHost">
-        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
-        <rdfs:range rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Person"/>
+    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasHost">
+        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
+        <rdfs:range rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person"/>
         <rdfs:label>event host</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasLocation -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasLocation -->
 
-    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasLocation">
-        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
-        <rdfs:range rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Room"/>
+    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasLocation">
+        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
+        <rdfs:range rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room"/>
         <rdfs:label xml:lang="en">location</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasProfessor -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasProfessor -->
 
-    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasProfessor">
-        <rdfs:subPropertyOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasHost"/>
+    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasProfessor">
+        <rdfs:subPropertyOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasHost"/>
         <rdfs:domain>
             <owl:Class>
                 <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Laboratory"/>
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Lecture"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture"/>
                 </owl:unionOf>
             </owl:Class>
         </rdfs:domain>
-        <rdfs:range rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Person"/>
+        <rdfs:range rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person"/>
         <rdfs:label xml:lang="en">professor</rdfs:label>
     </owl:ObjectProperty>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasRecurrence -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasRecurrence -->
 
-    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasRecurrence">
-        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
+    <owl:ObjectProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasRecurrence">
+        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
         <rdfs:range>
             <owl:Class>
                 <owl:oneOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Daily"/>
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Monthly"/>
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Once"/>
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly"/>
-                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Yearly"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Daily"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Monthly"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Once"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly"/>
+                    <rdf:Description rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Yearly"/>
                 </owl:oneOf>
             </owl:Class>
         </rdfs:range>
@@ -111,33 +111,33 @@
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasEndTime -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasEndTime -->
 
-    <owl:DatatypeProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasEndTime">
-        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
+    <owl:DatatypeProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasEndTime">
+        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
         <rdfs:label xml:lang="en">event start time</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasStartTime -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasName -->
 
-    <owl:DatatypeProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/hasStartTime">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
-        <rdfs:label xml:lang="en">event end time</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:label xml:lang="en">name</rdfs:label>
     </owl:DatatypeProperty>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/precis-schedule#hasName -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasStartTime -->
 
-    <owl:DatatypeProperty rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#hasName">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-        <rdfs:label xml:lang="en">name</rdfs:label>
+    <owl:DatatypeProperty rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#hasStartTime">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#time"/>
+        <rdfs:label xml:lang="en">event end time</rdfs:label>
     </owl:DatatypeProperty>
     
 
@@ -153,76 +153,76 @@
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event">
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event">
         <rdfs:label xml:lang="ro">Eveniment</rdfs:label>
         <rdfs:label xml:lang="en">Event</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Laboratory -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Laboratory">
-        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory">
+        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
         <rdfs:label xml:lang="ro">Laborator</rdfs:label>
         <rdfs:label xml:lang="en">Laboratory</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Lecture -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Lecture">
-        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture">
+        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
         <rdfs:label xml:lang="ro">Curs</rdfs:label>
         <rdfs:label xml:lang="en">Lecture</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence">
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence">
         <rdfs:label xml:lang="ro">Recurenta</rdfs:label>
         <rdfs:label xml:lang="en">Recurrence</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Person -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Person">
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person">
         <rdfs:label xml:lang="ro">Persoana</rdfs:label>
         <rdfs:label xml:lang="en">Person</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Room -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Room">
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room">
         <rdfs:label xml:lang="en">Room</rdfs:label>
         <rdfs:label xml:lang="ro">Sala</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Talk -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Talk -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Talk">
-        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Talk">
+        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
         <rdfs:label xml:lang="ro">Prezentare</rdfs:label>
         <rdfs:label xml:lang="en">Talk</rdfs:label>
     </owl:Class>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Workshop -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Workshop -->
 
-    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Workshop">
-        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Event"/>
+    <owl:Class rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Workshop">
+        <rdfs:subClassOf rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event"/>
         <rdfs:label xml:lang="en">Workshop</rdfs:label>
         <rdfs:label xml:lang="ro">Workshop</rdfs:label>
     </owl:Class>
@@ -240,57 +240,57 @@
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Daily -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Daily -->
 
-    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Daily">
-        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence"/>
+    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Daily">
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence"/>
         <rdfs:label xml:lang="en">daily</rdfs:label>
         <rdfs:label xml:lang="ro">zilnic</rdfs:label>
     </owl:NamedIndividual>
     <owl:Axiom>
-        <owl:annotatedSource rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Daily"/>
+        <owl:annotatedSource rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Daily"/>
         <owl:annotatedProperty rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
-        <owl:annotatedTarget rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence"/>
+        <owl:annotatedTarget rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence"/>
         <rdfs:label xml:lang="en">Daily</rdfs:label>
         <rdfs:label xml:lang="ro">Zilnic</rdfs:label>
     </owl:Axiom>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Monthly -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Monthly -->
 
-    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Monthly">
-        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence"/>
+    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Monthly">
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence"/>
         <rdfs:label xml:lang="ro">lunar</rdfs:label>
         <rdfs:label xml:lang="en">monthly</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Once -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Once -->
 
-    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Once">
-        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence"/>
+    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Once">
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence"/>
         <rdfs:label xml:lang="ro">o data</rdfs:label>
         <rdfs:label xml:lang="en">once</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly -->
 
-    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly">
-        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence"/>
+    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly">
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence"/>
         <rdfs:label xml:lang="ro">saptamanal</rdfs:label>
         <rdfs:label xml:lang="en">weekly</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Yearly -->
+    <!-- http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Yearly -->
 
-    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Yearly">
-        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Occurrence"/>
+    <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Yearly">
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence"/>
         <rdfs:label xml:lang="ro">anual</rdfs:label>
         <rdfs:label xml:lang="en">yearly</rdfs:label>
     </owl:NamedIndividual>
@@ -300,7 +300,8 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#Adina_Florea -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#Adina_Florea">
-        <precis-schedule1:hasName>Adina Magda Florea</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person"/>
+        <hasName>Adina Magda Florea</hasName>
         <rdfs:label xml:lang="en">Adina Florea</rdfs:label>
     </owl:NamedIndividual>
     
@@ -309,7 +310,8 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#Alex_Sorici -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#Alex_Sorici">
-        <precis-schedule1:hasName>Alexandru Sorici</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person"/>
+        <hasName>Alexandru Sorici</hasName>
         <rdfs:label xml:lang="en">Alex Sorici</rdfs:label>
     </owl:NamedIndividual>
     
@@ -318,12 +320,13 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#Data_Mining_Lab -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#Data_Mining_Lab">
-        <precis-schedule:hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR305"/>
-        <precis-schedule:hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Mihai_Trascau"/>
-        <precis-schedule:hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly"/>
-        <precis-schedule:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</precis-schedule:hasEndTime>
-        <precis-schedule:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">20:00</precis-schedule:hasStartTime>
-        <precis-schedule1:hasName>Data Mining Lab Wednesday 18:00 - 20:00</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory"/>
+        <hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR305"/>
+        <hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Mihai_Trascau"/>
+        <hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly"/>
+        <hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</hasEndTime>
+        <hasName>Data Mining Lab Wednesday 18:00 - 20:00</hasName>
+        <hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">20:00</hasStartTime>
         <rdfs:label xml:lang="en">Data Mining Lab Wednesday 18:00 - 20:00</rdfs:label>
     </owl:NamedIndividual>
     
@@ -332,12 +335,13 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#Data_Mining_Lecture -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#Data_Mining_Lecture">
-        <precis-schedule:hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR305"/>
-        <precis-schedule:hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Mihai_Trascau"/>
-        <precis-schedule:hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly"/>
-        <precis-schedule:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</precis-schedule:hasEndTime>
-        <precis-schedule:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</precis-schedule:hasStartTime>
-        <precis-schedule1:hasName>Data Mining Lecture Wednesday 16:00 - 18:00</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture"/>
+        <hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR305"/>
+        <hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Mihai_Trascau"/>
+        <hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly"/>
+        <hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</hasEndTime>
+        <hasName>Data Mining Lecture Wednesday 16:00 - 18:00</hasName>
+        <hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</hasStartTime>
         <rdfs:label xml:lang="en">Data Mining Lecture Wednesday 16:00 - 18:00</rdfs:label>
     </owl:NamedIndividual>
     
@@ -346,12 +350,13 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#MAS_LAB2 -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#MAS_LAB2">
-        <precis-schedule:hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR303"/>
-        <precis-schedule:hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Alex_Sorici"/>
-        <precis-schedule:hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly"/>
-        <precis-schedule:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</precis-schedule:hasEndTime>
-        <precis-schedule:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</precis-schedule:hasStartTime>
-        <precis-schedule1:hasName>MAS Lab Wednesday 16:00 - 18:00</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory"/>
+        <hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR303"/>
+        <hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Alex_Sorici"/>
+        <hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly"/>
+        <hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</hasEndTime>
+        <hasName>MAS Lab Wednesday 16:00 - 18:00</hasName>
+        <hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</hasStartTime>
         <rdfs:label xml:lang="en">MAS Lab Wednesday 16:00 - 18:00</rdfs:label>
     </owl:NamedIndividual>
     
@@ -360,12 +365,13 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#MAS_Lab1 -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#MAS_Lab1">
-        <precis-schedule:hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR303"/>
-        <precis-schedule:hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Alex_Sorici"/>
-        <precis-schedule:hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly"/>
-        <precis-schedule:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</precis-schedule:hasEndTime>
-        <precis-schedule:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</precis-schedule:hasStartTime>
-        <precis-schedule1:hasName>MAS Lab Monday 16:00 - 18:00</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory"/>
+        <hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR303"/>
+        <hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Alex_Sorici"/>
+        <hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly"/>
+        <hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</hasEndTime>
+        <hasName>MAS Lab Monday 16:00 - 18:00</hasName>
+        <hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</hasStartTime>
         <rdfs:label xml:lang="en">MAS Lab Monday 16:00 - 18:00</rdfs:label>
     </owl:NamedIndividual>
     
@@ -374,13 +380,13 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#MAS_Lecture -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#MAS_Lecture">
-        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Lecture"/>
-        <precis-schedule:hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR303"/>
-        <precis-schedule:hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Adina_Florea"/>
-        <precis-schedule:hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule/Weekly"/>
-        <precis-schedule:hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</precis-schedule:hasEndTime>
-        <precis-schedule:hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</precis-schedule:hasStartTime>
-        <precis-schedule1:hasName>MAS Lecture Tuesday 16:00 - 18:00</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture"/>
+        <hasLocation rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#PR303"/>
+        <hasProfessor rdf:resource="http://aimas.cs.pub.ro/robin/precis-schedule#Adina_Florea"/>
+        <hasRecurrence rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Weekly"/>
+        <hasEndTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">16:00</hasEndTime>
+        <hasName>MAS Lecture Tuesday 16:00 - 18:00</hasName>
+        <hasStartTime rdf:datatype="http://www.w3.org/2001/XMLSchema#time">18:00</hasStartTime>
         <rdfs:label xml:lang="en">MAS Lecture Tuesday 16:00 - 18:00</rdfs:label>
     </owl:NamedIndividual>
     
@@ -389,7 +395,8 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#Mihai_Trascau -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#Mihai_Trascau">
-        <precis-schedule1:hasName>Mihai Trascau</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person"/>
+        <hasName>Mihai Trascau</hasName>
         <rdfs:label xml:lang="en">Mihai Trascau</rdfs:label>
     </owl:NamedIndividual>
     
@@ -398,7 +405,8 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#PR303 -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#PR303">
-        <precis-schedule1:hasName>PR303</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room"/>
+        <hasName>PR303</hasName>
         <rdfs:label xml:lang="en">Room PR303</rdfs:label>
     </owl:NamedIndividual>
     
@@ -407,7 +415,8 @@
     <!-- http://aimas.cs.pub.ro/robin/precis-schedule#PR305 -->
 
     <owl:NamedIndividual rdf:about="http://aimas.cs.pub.ro/robin/precis-schedule#PR305">
-        <precis-schedule1:hasName>PR305</precis-schedule1:hasName>
+        <rdf:type rdf:resource="http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room"/>
+        <hasName>PR305</hasName>
         <rdfs:label xml:lang="en">Room PR305</rdfs:label>
     </owl:NamedIndividual>
 </rdf:RDF>
