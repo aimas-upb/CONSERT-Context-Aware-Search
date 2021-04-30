@@ -1,0 +1,29 @@
+ontologies:
+  - precis-schedule-ont.owl
+name: precis-schedule
+output_dir: outputs
+
+openapi:
+  openapi: 3.0.1
+  info:
+    description: This is the API of the  Precis Schedule Ontology
+      at [precis-schedule-ont](precis-schedule-ont.owl)
+    title: Precis Schedule
+    version: v1.0.0
+  # externalDocs:
+  #   description: Precis Schedule
+  #   url: http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule-ont-1.0.0
+  servers:
+    # - url: https://api.models.mint.isi.edu/v1.3.0
+    # - url: https://dev.api.models.mint.isi.edu/v1.3.0
+    - url: http://localhost:8080/
+
+endpoint:
+  url: http://aimas.cs.pub.ro/robin/precis-schedule-1.0.0
+  # prefix: http://aimas.cs.pub.ro/robin/precis-schedule
+  # graph_base: http://ontosoft.isi.edu:3030/modelCatalog-1.2.0/data/
+
+enable_get_paths: true
+enable_post_paths: false
+enable_delete_paths: false
+enable_put_paths: false
