@@ -1,0 +1,1026 @@
+openapi: 3.0.1
+info:
+  description: This is the API of the  Precis Schedule Ontology at [precis-schedule-ont](precis-schedule-ont.owl)
+  title: Precis Schedule
+  version: v1.0.0
+servers:
+- url: http://localhost:8080/
+paths:
+  /events:
+    get:
+      description: Gets a list of all instances of Event (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event)
+      operationId: events_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Event'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Event.
+      summary: List all instances of Event
+      tags:
+      - Event
+      x-openapi-router-controller: openapi_server.controllers.event_controller
+  /events/{thingid}:
+    get:
+      description: Gets the details of a given Event (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Event)
+      operationId: events_thingid_get
+      parameters:
+      - description: The ID of the Event to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Event'
+          description: Gets the details of a given Event
+      summary: Get a single Event by its id
+      tags:
+      - Event
+      x-openapi-router-controller: openapi_server.controllers.event_controller
+  /laboratorys:
+    get:
+      description: Gets a list of all instances of Laboratory (more information in
+        http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory)
+      operationId: laboratorys_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Laboratory'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Laboratory.
+      summary: List all instances of Laboratory
+      tags:
+      - Laboratory
+      x-openapi-router-controller: openapi_server.controllers.laboratory_controller
+  /laboratorys/{thingid}:
+    get:
+      description: Gets the details of a given Laboratory (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Laboratory)
+      operationId: laboratorys_thingid_get
+      parameters:
+      - description: The ID of the Laboratory to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Laboratory'
+          description: Gets the details of a given Laboratory
+      summary: Get a single Laboratory by its id
+      tags:
+      - Laboratory
+      x-openapi-router-controller: openapi_server.controllers.laboratory_controller
+  /lectures:
+    get:
+      description: Gets a list of all instances of Lecture (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture)
+      operationId: lectures_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Lecture'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Lecture.
+      summary: List all instances of Lecture
+      tags:
+      - Lecture
+      x-openapi-router-controller: openapi_server.controllers.lecture_controller
+  /lectures/{thingid}:
+    get:
+      description: Gets the details of a given Lecture (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Lecture)
+      operationId: lectures_thingid_get
+      parameters:
+      - description: The ID of the Lecture to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Lecture'
+          description: Gets the details of a given Lecture
+      summary: Get a single Lecture by its id
+      tags:
+      - Lecture
+      x-openapi-router-controller: openapi_server.controllers.lecture_controller
+  /occurrences:
+    get:
+      description: Gets a list of all instances of Occurrence (more information in
+        http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence)
+      operationId: occurrences_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Occurrence'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Occurrence.
+      summary: List all instances of Occurrence
+      tags:
+      - Occurrence
+      x-openapi-router-controller: openapi_server.controllers.occurrence_controller
+  /occurrences/{thingid}:
+    get:
+      description: Gets the details of a given Occurrence (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Occurrence)
+      operationId: occurrences_thingid_get
+      parameters:
+      - description: The ID of the Occurrence to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Occurrence'
+          description: Gets the details of a given Occurrence
+      summary: Get a single Occurrence by its id
+      tags:
+      - Occurrence
+      x-openapi-router-controller: openapi_server.controllers.occurrence_controller
+  /persons:
+    get:
+      description: Gets a list of all instances of Person (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person)
+      operationId: persons_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Person'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Person.
+      summary: List all instances of Person
+      tags:
+      - Person
+      x-openapi-router-controller: openapi_server.controllers.person_controller
+  /persons/{thingid}:
+    get:
+      description: Gets the details of a given Person (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Person)
+      operationId: persons_thingid_get
+      parameters:
+      - description: The ID of the Person to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+          description: Gets the details of a given Person
+      summary: Get a single Person by its id
+      tags:
+      - Person
+      x-openapi-router-controller: openapi_server.controllers.person_controller
+  /rooms:
+    get:
+      description: Gets a list of all instances of Room (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room)
+      operationId: rooms_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Room'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Room.
+      summary: List all instances of Room
+      tags:
+      - Room
+      x-openapi-router-controller: openapi_server.controllers.room_controller
+  /rooms/{thingid}:
+    get:
+      description: Gets the details of a given Room (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Room)
+      operationId: rooms_thingid_get
+      parameters:
+      - description: The ID of the Room to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Room'
+          description: Gets the details of a given Room
+      summary: Get a single Room by its id
+      tags:
+      - Room
+      x-openapi-router-controller: openapi_server.controllers.room_controller
+  /talks:
+    get:
+      description: Gets a list of all instances of Talk (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Talk)
+      operationId: talks_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Talk'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Talk.
+      summary: List all instances of Talk
+      tags:
+      - Talk
+      x-openapi-router-controller: openapi_server.controllers.talk_controller
+  /talks/{thingid}:
+    get:
+      description: Gets the details of a given Talk (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Talk)
+      operationId: talks_thingid_get
+      parameters:
+      - description: The ID of the Talk to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Talk'
+          description: Gets the details of a given Talk
+      summary: Get a single Talk by its id
+      tags:
+      - Talk
+      x-openapi-router-controller: openapi_server.controllers.talk_controller
+  /workshops:
+    get:
+      description: Gets a list of all instances of Workshop (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Workshop)
+      operationId: workshops_get
+      parameters:
+      - description: Filter by label
+        explode: true
+        in: query
+        name: label
+        required: false
+        schema:
+          type: string
+        style: form
+      - description: Page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Items per page
+        explode: true
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 100
+          format: int32
+          maximum: 200
+          minimum: 1
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/Workshop'
+                type: array
+          description: Successful response - returns an array with the instances of
+            Workshop.
+      summary: List all instances of Workshop
+      tags:
+      - Workshop
+      x-openapi-router-controller: openapi_server.controllers.workshop_controller
+  /workshops/{thingid}:
+    get:
+      description: Gets the details of a given Workshop (more information in http://aimas.cs.pub.ro/robin/ontologies/2021/04/precis-schedule#Workshop)
+      operationId: workshops_thingid_get
+      parameters:
+      - description: The ID of the Workshop to be retrieved
+        explode: false
+        in: path
+        name: thingid
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workshop'
+          description: Gets the details of a given Workshop
+      summary: Get a single Workshop by its id
+      tags:
+      - Workshop
+      x-openapi-router-controller: openapi_server.controllers.workshop_controller
+components:
+  schemas:
+    Lecture:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        hasRecurrence:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasProfessor:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasHost:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasEndTime:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasLocation:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasStartTime:
+          description: Description not available
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+      title: Lecture
+      type: object
+    Event:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        hasRecurrence:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasHost:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasEndTime:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasLocation:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasStartTime:
+          description: Description not available
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+      title: Event
+      type: object
+    Laboratory:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        hasRecurrence:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasProfessor:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasHost:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasEndTime:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasLocation:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasStartTime:
+          description: Description not available
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+      title: Laboratory
+      type: object
+    Talk:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        hasRecurrence:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasHost:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasEndTime:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasLocation:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasStartTime:
+          description: Description not available
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+      title: Talk
+      type: object
+    Workshop:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        hasRecurrence:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasHost:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        hasEndTime:
+          description: Description not available
+          items:
+            type: string
+          nullable: true
+          type: array
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasLocation:
+          description: Description not available
+          items:
+            description: Description not available
+            type: object
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        hasStartTime:
+          description: Description not available
+          items:
+            type: string
+          maxItems: 1
+          nullable: true
+          type: array
+      title: Workshop
+      type: object
+    Occurrence:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: Occurrence
+      type: object
+    Person:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: Person
+      type: object
+    Room:
+      description: Description not available
+      example:
+        value:
+          id: some_id
+      properties:
+        description:
+          description: small description
+          items:
+            type: string
+          nullable: true
+          type: array
+        id:
+          description: identifier
+          nullable: false
+          type: string
+        label:
+          description: short description of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+        type:
+          description: type of the resource
+          items:
+            type: string
+          nullable: true
+          type: array
+      title: Room
+      type: object
+  securitySchemes:
+    BearerAuth:
+      bearerFormat: JWT
+      scheme: bearer
+      type: http
+      x-bearerInfoFunc: openapi_server.controllers.user_controller.decode_token
